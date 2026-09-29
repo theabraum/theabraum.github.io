@@ -3,17 +3,23 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{{ if .IsHome }}{{ site.Title }} · {{ .Title }}{{ else }}{{ .Title }} · {{ site.Title }}{{ end }}</title>
+  <title>{{ if .IsHome }}{{ site.Params.seoTitle }} · {{ site.Title }}{{ else }}{{ .Title }} · {{ site.Title }}{{ end }}</title>
   <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ site.Params.description }}{{ end }}">
   <link rel="canonical" href="{{ .Permalink }}">
+  {{- if .Params.noindex }}
+  <meta name="robots" content="noindex">
+  {{- end }}
   <link rel="icon" href="{{ "favicon.svg" | relURL }}" type="image/svg+xml">
   {{- with resources.Get "images/thea.jpeg" }}
   {{- $og := .Fill "1200x630 Top q80" }}
   <meta property="og:type" content="website">
-  <meta property="og:title" content="{{ site.Title }} · Piano Lessons">
+  <meta property="og:title" content="{{ site.Params.seoTitle }} · {{ site.Title }}">
   <meta property="og:description" content="{{ site.Params.description }}">
   <meta property="og:image" content="{{ $og.Permalink }}">
   <meta property="og:url" content="{{ $.Permalink }}">
+  {{- if $.IsHome }}
+  {{ partial "schema.html" (dict "page" $ "image" $og.Permalink) }}
+  {{- end }}
   {{- end }}
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -27,5 +33,8 @@
     {{ block "main" . }}{{ end }}
   </main>
   {{ partial "footer.html" . }}
+  {{- if .IsHome }}
+  {{ partial "book-bar.html" . }}
+  {{- end }}
 </body>
 </html>
