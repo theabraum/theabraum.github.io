@@ -1,0 +1,23 @@
+# Edit this file to change the lesson details shown on the home page.
+
+rates:
+  - length: "30 minutes"
+    price: "$25"
+  - length: "60 minutes"
+    price: "$40"
+
+teaches:
+  - title: "Complete beginners"
+    text: "Never touched a piano? We start with the basics: reading notes, rhythm and playing your first songs."
+  - title: "Up to RCM Level 5"
+    text: "Structured lessons following the Royal Conservatory of Music program, from Preparatory through Level 5."
+
+location:
+  heading: "Home studio in Hamptons"
+  text: "Lessons take place in my home studio in the Hamptons neighbourhood of NW Calgary. The address is shared when you book."
+
+contact:
+  heading: "Questions or bookings"
+  text: "Email lessons@theabraum.com for more information."
+  detail: "To book, include the student's name, age, any past piano experience, and the days and times that work best."
+  button: "Email lessons@theabraum.com"

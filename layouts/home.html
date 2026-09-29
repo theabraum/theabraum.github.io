@@ -1,0 +1,86 @@
+{{ define "main" }}
+{{- $d := site.Data.lessons }}
+{{- $mail := printf "mailto:%s?subject=%s" site.Params.email ("Piano lessons enquiry" | urlquery) }}
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div class="hero-text">
+      <p class="eyebrow">{{ .Params.location }}</p>
+      <h1>Piano lessons with Thea</h1>
+      <p class="lede">{{ .Params.tagline }}.</p>
+      <p class="hero-email">Email <a href="{{ $mail }}">{{ site.Params.email }}</a> for more information.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="{{ $mail }}">Book a lesson</a>
+        <a class="btn btn-ghost" href="#rates">See rates</a>
+      </div>
+    </div>
+    <figure class="hero-photo">
+      {{- with resources.Get "images/thea.jpg" }}
+      {{- $sm := .Resize "480x webp q80" }}
+      {{- $md := .Resize "800x webp q80" }}
+      {{- $fb := .Resize "800x jpg q80" }}
+      <picture>
+        <source type="image/webp" srcset="{{ $sm.RelPermalink }} 480w, {{ $md.RelPermalink }} 800w" sizes="(min-width: 900px) 420px, 90vw">
+        <img src="{{ $fb.RelPermalink }}" width="{{ $fb.Width }}" height="{{ $fb.Height }}" alt="Thea smiling at the camera while playing the piano">
+      </picture>
+      {{- end }}
+    </figure>
+  </div>
+</section>
+
+<section class="section" id="about">
+  <div class="wrap narrow">
+    <h2>About me</h2>
+    {{ .Content }}
+    <ul class="facts">
+      <li><strong>RCM Level 10</strong><span>Piano</span></li>
+      <li><strong>Beginner – Level 5</strong><span>Students I teach</span></li>
+      <li><strong>Hamptons, NW Calgary</strong><span>Home studio</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="section alt" id="lessons">
+  <div class="wrap">
+    <h2>Who I teach</h2>
+    <div class="cards">
+      {{- range $d.teaches }}
+      <article class="card">
+        <h3>{{ .title }}</h3>
+        <p>{{ .text }}</p>
+      </article>
+      {{- end }}
+    </div>
+  </div>
+</section>
+
+<section class="section" id="rates">
+  <div class="wrap narrow">
+    <h2>Rates</h2>
+    <div class="rates">
+      {{- range $d.rates }}
+      <div class="rate">
+        <span class="rate-price">{{ .price }}</span>
+        <span class="rate-length">{{ .length }}</span>
+      </div>
+      {{- end }}
+    </div>
+  </div>
+</section>
+
+<section class="section alt" id="location">
+  <div class="wrap narrow">
+    <h2>{{ $d.location.heading }}</h2>
+    <p>{{ $d.location.text }}</p>
+  </div>
+</section>
+
+<section class="section contact" id="contact">
+  <div class="wrap narrow">
+    <h2>{{ $d.contact.heading }}</h2>
+    <p class="contact-lead">{{ $d.contact.text }}</p>
+    {{ with $d.contact.detail }}<p>{{ . }}</p>{{ end }}
+    <a class="btn btn-primary btn-lg" href="{{ $mail }}">{{ $d.contact.button }}</a>
+  </div>
+</section>
+{{ end }}
