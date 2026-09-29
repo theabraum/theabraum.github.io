@@ -15,13 +15,13 @@
       </div>
     </div>
     <figure class="hero-photo">
-      {{- with resources.Get "images/thea.jpg" }}
+      {{- with resources.Get "images/thea.jpeg" }}
       {{- $sm := .Resize "480x webp q80" }}
       {{- $md := .Resize "800x webp q80" }}
       {{- $fb := .Resize "800x jpg q80" }}
       <picture>
         <source type="image/webp" srcset="{{ $sm.RelPermalink }} 480w, {{ $md.RelPermalink }} 800w" sizes="(min-width: 900px) 420px, 90vw">
-        <img src="{{ $fb.RelPermalink }}" width="{{ $fb.Width }}" height="{{ $fb.Height }}" alt="Watercolor portrait of Thea">
+        <img src="{{ $fb.RelPermalink }}" width="{{ $fb.Width }}" height="{{ $fb.Height }}" alt="Thea smiling with her chin resting in her hands">
       </picture>
       {{- end }}
     </figure>
