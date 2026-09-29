@@ -211,3 +211,66 @@ p { margin: 0 0 1em; }
 .hero-email { color: var(--ink-soft); margin-top: -0.25rem; }
 .hero-email a { font-weight: 600; color: var(--ink); }
 .contact .contact-lead { font-size: 1.25rem; color: #fff; }
+
+/* Contact form */
+.contact-form {
+  margin-top: 1.75rem;
+  display: grid;
+  gap: 16px;
+}
+.field-row { display: grid; gap: 16px; }
+@media (min-width: 640px) { .field-row { grid-template-columns: 1fr 1fr; } }
+.contact-form label {
+  display: grid;
+  gap: 6px;
+  font-weight: 500;
+  font-size: 0.95rem;
+  color: #fff;
+}
+.contact-form .optional { font-weight: 400; color: #aab2c5; }
+.contact-form input,
+.contact-form select,
+.contact-form textarea {
+  width: 100%;
+  font: inherit;
+  font-weight: 400;
+  color: var(--ink);
+  background: #fff;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  padding: 0.7em 0.85em;
+}
+.contact-form textarea { resize: vertical; }
+.contact-form input:focus,
+.contact-form select:focus,
+.contact-form textarea:focus {
+  outline: 3px solid var(--gold-soft);
+  outline-offset: 1px;
+}
+.contact-form button { justify-self: start; border: 0; cursor: pointer; }
+.contact .form-note { font-size: 0.9rem; margin: 0; }
+.contact .form-note a { color: #fff; }
+.hp { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
+
+/* Phone-only "Book a lesson" bar */
+.book-bar { display: none; }
+@media (max-width: 700px) {
+  .book-bar {
+    display: block;
+    position: fixed;
+    left: 0; right: 0; bottom: 0;
+    z-index: 20;
+    padding: 10px 16px calc(10px + env(safe-area-inset-bottom));
+    background: rgba(251, 248, 243, 0.96);
+    border-top: 1px solid var(--line);
+    box-shadow: 0 -6px 20px -12px rgba(31, 42, 68, 0.35);
+    transition: transform 0.2s ease;
+  }
+  .book-bar .btn { display: block; text-align: center; }
+  .book-bar.is-hidden { transform: translateY(110%); }
+  .site-footer { padding-bottom: 72px; }
+}
+@media (prefers-reduced-motion: reduce) { .book-bar { transition: none; } }
+
+/* Keep headings clear of the sticky header when jumping to a section */
+section[id] { scroll-margin-top: 72px; }
