@@ -1,12 +1,17 @@
 baseURL = "https://www.theabraum.com/"
 languageCode = "en-ca"
 title = "Thea Braum"
-disableKinds = ["taxonomy", "term", "RSS", "sitemap"]
+disableKinds = ["taxonomy", "term", "RSS"]
 enableRobotsTXT = true
 
 [params]
-  description = "Friendly, patient piano lessons for beginners through RCM Level 5 in a home studio in Hamptons, NW Calgary."
+  # Shown in Google results and link previews.
+  seoTitle = "Piano Lessons in NW Calgary (Hamptons)"
+  description = "Friendly, patient piano lessons in NW Calgary for beginners through RCM Level 5. Home studio in the Hamptons. $25 for 30 minutes, $40 for 60 minutes."
   email = "lessons@theabraum.com"
+  area = "Hamptons, NW Calgary"
+  # Contact form handler (FormSubmit.co). Messages go to lessons@theabraum.com.
+  formAction = "https://formsubmit.co/lessons@theabraum.com"
 
 # Site navigation. Add Art and Resume here when those sections are ready.
 [menus]
