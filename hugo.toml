@@ -10,8 +10,8 @@ enableRobotsTXT = true
   description = "Friendly, patient piano lessons in NW Calgary for beginners through RCM Level 5. Home studio in the Hamptons. $25 for 30 minutes, $40 for 60 minutes."
   email = "lessons@theabraum.com"
   area = "Hamptons, NW Calgary"
-  # Contact form handler (FormSubmit.co). Messages go to lessons@theabraum.com.
-  formAction = "https://formsubmit.co/lessons@theabraum.com"
+  # Contact form handler (FormSubmit.co). The code is FormSubmit's private alias for lessons@theabraum.com.
+  formAction = "https://formsubmit.co/a03b02dff0201c16ba27715dd71bbcd1"
 
 # Site navigation. Add Art and Resume here when those sections are ready.
 [menus]
