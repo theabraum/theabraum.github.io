@@ -7,7 +7,7 @@
   <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ site.Params.description }}{{ end }}">
   <link rel="canonical" href="{{ .Permalink }}">
   <link rel="icon" href="{{ "favicon.svg" | relURL }}" type="image/svg+xml">
-  {{- with resources.Get "images/thea.jpg" }}
+  {{- with resources.Get "images/thea.jpeg" }}
   {{- $og := .Fill "1200x630 Top q80" }}
   <meta property="og:type" content="website">
   <meta property="og:title" content="{{ site.Title }} · Piano Lessons">
