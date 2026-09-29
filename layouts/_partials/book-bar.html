@@ -1,0 +1,14 @@
+<div class="book-bar" id="book-bar">
+  <a class="btn btn-primary" href="#contact">Book a lesson</a>
+</div>
+<script>
+  // Hide the phone "Book a lesson" bar while the contact section is on screen.
+  (function () {
+    var bar = document.getElementById('book-bar');
+    var contact = document.getElementById('contact');
+    if (!bar || !contact || !('IntersectionObserver' in window)) return;
+    new IntersectionObserver(function (entries) {
+      bar.classList.toggle('is-hidden', entries[0].isIntersecting);
+    }, { threshold: 0.15 }).observe(contact);
+  })();
+</script>
