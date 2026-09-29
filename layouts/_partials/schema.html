@@ -1,0 +1,24 @@
+{{- /* Structured data so search engines understand this is a local lesson service. */ -}}
+{{- $p := .page -}}
+{{- $offers := slice -}}
+{{- range site.Data.lessons.rates -}}
+  {{- $offers = $offers | append (dict
+      "@type" "Offer"
+      "name" (printf "Piano lesson, %s" .length)
+      "price" (replace .price "$" "")
+      "priceCurrency" "CAD") -}}
+{{- end -}}
+{{- $data := dict
+    "@context" "https://schema.org"
+    "@type" "LocalBusiness"
+    "name" "Thea Braum Piano Lessons"
+    "description" site.Params.description
+    "url" site.BaseURL
+    "email" site.Params.email
+    "image" .image
+    "priceRange" "$25–$40"
+    "address" (dict "@type" "PostalAddress" "addressLocality" "Calgary" "addressRegion" "AB" "addressCountry" "CA")
+    "areaServed" (dict "@type" "Place" "name" site.Params.area)
+    "makesOffer" $offers
+-}}
+<script type="application/ld+json">{{ $data | jsonify | safeJS }}</script>
