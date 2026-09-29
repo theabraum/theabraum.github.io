@@ -1,0 +1,27 @@
+baseURL = "https://www.theabraum.com/"
+languageCode = "en-ca"
+title = "Thea Braum"
+disableKinds = ["taxonomy", "term", "RSS", "sitemap"]
+enableRobotsTXT = true
+
+[params]
+  description = "Friendly, patient piano lessons for beginners through RCM Level 5 in a home studio in Hamptons, NW Calgary."
+  email = "lessons@theabraum.com"
+
+# Site navigation. Add Art and Resume here when those sections are ready.
+[menus]
+  [[menus.main]]
+    name = "Lessons"
+    pageRef = "/"
+    weight = 10
+  # [[menus.main]]
+  #   name = "Art"
+  #   pageRef = "/art"
+  #   weight = 20
+  # [[menus.main]]
+  #   name = "Resume"
+  #   pageRef = "/resume"
+  #   weight = 30
+
+[markup.goldmark.renderer]
+  unsafe = false
