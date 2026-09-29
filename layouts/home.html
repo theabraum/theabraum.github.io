@@ -21,7 +21,7 @@
       {{- $fb := .Resize "800x jpg q80" }}
       <picture>
         <source type="image/webp" srcset="{{ $sm.RelPermalink }} 480w, {{ $md.RelPermalink }} 800w" sizes="(min-width: 900px) 420px, 90vw">
-        <img src="{{ $fb.RelPermalink }}" width="{{ $fb.Width }}" height="{{ $fb.Height }}" alt="Thea smiling at the camera while playing the piano">
+        <img src="{{ $fb.RelPermalink }}" width="{{ $fb.Width }}" height="{{ $fb.Height }}" alt="Watercolor portrait of Thea">
       </picture>
       {{- end }}
     </figure>
